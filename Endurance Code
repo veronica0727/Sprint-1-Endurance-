@@ -1,0 +1,20 @@
+async function startProgram() {
+	resetAim();
+	setMainLed({ r: 47, g: 255, b: 104 });
+	await speak('Ready, Set, Go!', false);
+	setStabilization(true);
+	await roll(0, 255, 4.33);
+	stopRoll();
+	await delay(4);
+	await roll(90, 155, 3.3);
+	stopRoll();
+	await delay(4);
+	await roll(180, 255, 4.33);
+	stopRoll();
+	await delay(4);
+	await roll(270, 155, 3.3);
+	stopRoll();
+	await fade({ r: 7, g: 255, b: 14 }, { r: 255, g: 66, b: 4 }, 1);
+	await speak('I\'m done and I need water', true);
+	exitProgram();
+}
